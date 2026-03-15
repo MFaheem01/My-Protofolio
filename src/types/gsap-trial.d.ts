@@ -1,22 +1,27 @@
-declare module 'gsap-trial/SplitText' {
-  export class SplitText {
+declare module "gsap-trial/ScrollSmoother" {
+  interface ScrollSmoother {
+    scrollTop(value?: number): number;
+    paused(value?: boolean): boolean;
+    scrollTo(target: string | number | Element, smooth?: boolean, position?: string): void;
+    refresh(): void;
+  }
+
+  const ScrollSmoother: {
+    create(config?: object): ScrollSmoother;
+    get(): ScrollSmoother | undefined;
+    refresh(): void;
+  };
+
+  export default ScrollSmoother;
+}
+
+declare module "gsap-trial/SplitText" {
+  class SplitText {
+    constructor(target: string | Element | Element[], vars?: object);
     chars: Element[];
     words: Element[];
     lines: Element[];
-    constructor(target: any, vars?: any);
     revert(): void;
   }
-}
-
-declare module 'gsap-trial/ScrollSmoother' {
-  export class ScrollSmoother {
-    static create(vars?: any): any;
-    static get(): any;
-  }
-}
-
-declare module 'gsap-trial/*' {
-  const value: any;
-  export default value;
-  export = value;
+  export default SplitText;
 }

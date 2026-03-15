@@ -1,4 +1,4 @@
-import { SplitText } from "gsap-trial/SplitText";
+import SplitText from "gsap-trial/SplitText";
 import gsap from "gsap";
 import { smoother } from "../Navbar";
 
@@ -13,7 +13,7 @@ export function initialFX() {
   });
 
   var landingText = new SplitText(
-    [".landing-info h3", ".landing-intro h2", ".landing-intro h1"],
+    ".landing-info h3, .landing-intro h2, .landing-intro h1",
     {
       type: "chars,lines",
       linesClass: "split-line",
